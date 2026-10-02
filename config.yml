@@ -1,0 +1,29 @@
+digest_title: " Repo Finder Digest"   
+
+baskets:
+  - name: " Trending (new & rising)"
+    query: "created:>{days_ago:30} stars:>50 archived:false"
+    sort: stars
+    order: desc
+    max_results: 8
+
+  - name: "High-quality & actively maintained"
+    query: "stars:>1000 pushed:>{days_ago:30} archived:false"
+    sort: updated
+    order: desc
+    max_results: 8
+
+  - name: "Topics I care about"
+    # Add/remove topics here — comma becomes OR in GitHub search when repeated as topic:
+    query: "topic:llm topic:ai-agents stars:>200 pushed:>{days_ago:90} archived:false"
+    sort: stars
+    order: desc
+    max_results: 8
+
+  - name: " Permissively licensed gems"
+    query: "license:mit stars:100..2000 pushed:>{days_ago:60} archived:false"
+    sort: updated
+    order: desc
+    max_results: 5
+
+skip_previously_seen: true
